@@ -1,10 +1,10 @@
 from machine import Pin
 
-middle = machine.Pin((), machine.Pin.OUT)
-topleft = machine.Pin((), machine.Pin.OUT)
-top = machine.Pin((), machine.Pin.OUT)
-topright = machine.Pin((), machine.Pin.OUT)
-dot = machine.Pin((), machine.Pin.OUT)
-bottomright= machine.Pin((), machine.Pin.OUT)
+a = machine.Pin((), machine.Pin.OUT)
+b = machine.Pin((), machine.Pin.OUT)
+c = machine.Pin((), machine.Pin.OUT)
+d = machine.Pin((), machine.Pin.OUT)
+e = machine.Pin((), machine.Pin.OUT)
+f = machine.Pin((), machine.Pin.OUT)
 bottom = machine.Pin((), machine.Pin.OUT)
 bottomleft = machine.Pin((), machine.Pin.OUT)
