@@ -1,10 +1,10 @@
 from machine import Pin
 
 
-d1 = machine.Pin((); machien.Pin.OUT)
-d2 = machine.Pin((); machien.Pin.OUT)
-d3 = machine.Pin((); machien.Pin.OUT)
-d4 = machine.Pin((); machien.Pin.OUT)
+d1 = machine.Pin((); machine.Pin.OUT)
+d2 = machine.Pin((); machine.Pin.OUT)
+d3 = machine.Pin((); machine.Pin.OUT)
+d4 = machine.Pin((); machine.Pin.OUT)
 
 a = machine.Pin((), machine.Pin.OUT)
 b = machine.Pin((), machine.Pin.OUT)
