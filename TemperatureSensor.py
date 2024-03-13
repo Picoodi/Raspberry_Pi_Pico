@@ -2,22 +2,36 @@
 from machine import ADC
 from time import sleep
 
-# Initialisierung des ADC4
+# Initialising des ADC4 Pins for the Sensor and create the Pins for the 7Segment displays as well as the Pins for the LEDs.
 sensor = ADC(4)
 conversion_factor = 3.3 / (65535)
 
-# Wiederholung einleiten (Schleife)
+a = machine.Pin(, machine.Pin.OUT)
+b = machine.Pin(, machine.Pin.OUT)
+c = machine.Pin(, machine.Pin.OUT)
+d = machine.Pin(, machine.Pin.OUT)
+e = machine.Pin(, machine.Pin.OUT)
+f = machine.Pin(, machine.Pin.OUT)
+g = machine.Pin(, machine.Pin.OUT)
+dp = machine.Pin(, machine.Pin.OUT)
+
+
+# Infinite Loop so it works
 while True:
-    # Temparatur-Sensor als Dezimalzahl lesen
+    # Read the sensor as a dicimal number
     value_a = sensor.read_u16()
-    # Dezimalzahl in eine reele Zahl umrechnen
+    # Calculate it into a real number
     spannung = value_a * conversion_factor
-    # Spannung in Temperatur umrechnen
+    # Turn it into a temperatur
     temperatur = 27 - (spannung - 0.706) / 0.001721
-    # Ausgabe in der Kommandozeile/Shell
-    print("Dezimalzahl: ", value_a)
-    print("Spannung (V): ", spannung)
-    print("Temperatur (°C): ", temperatur)
-    print()
-    # 2 Sekunden warten
-    sleep(3)
+
+    #we look if the 
+
+    #we need to know if the temperatur is only 1 or 2 digit
+    if temperatur < 10:
+
+
+
+    
+    # little 1 second buffer 
+    sleep(1)
