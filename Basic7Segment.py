@@ -5,14 +5,14 @@ import utime
 
 button = machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN)
 
-middle = machine.Pin((16), machine.Pin.OUT)
-topleft = machine.Pin((17), machine.Pin.OUT)
-top = machine.Pin((18), machine.Pin.OUT)
-topright = machine.Pin((19), machine.Pin.OUT)
-dot = machine.Pin((12), machine.Pin.OUT)
-bottomright= machine.Pin((13), machine.Pin.OUT)
-bottom = machine.Pin((14), machine.Pin.OUT)
-bottomleft = machine.Pin((15), machine.Pin.OUT)
+middle = machine.Pin(, machine.Pin.OUT)
+topleft = machine.Pin(, machine.Pin.OUT)
+top = machine.Pin(, machine.Pin.OUT)
+topright = machine.Pin(, machine.Pin.OUT)
+dot = machine.Pin(, machine.Pin.OUT)
+bottomright= machine.Pin(, machine.Pin.OUT)
+bottom = machine.Pin(, machine.Pin.OUT)
+bottomleft = machine.Pin(, machine.Pin.OUT)
 
 
 
