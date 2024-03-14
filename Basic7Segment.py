@@ -3,8 +3,6 @@
 from machine import Pin
 import utime
 
-button = machine.Pin(10, machine.Pin.IN, machine.Pin.PULL_DOWN)
-
 middle = machine.Pin(, machine.Pin.OUT)
 topleft = machine.Pin(, machine.Pin.OUT)
 top = machine.Pin(, machine.Pin.OUT)
@@ -100,8 +98,3 @@ while True:
         
     if i == 10:
         i = 0
-        
-    if button.value() == 1:
-        utime.sleep(0.25) #This Buffer is NECESSARY
-        i = i+1
-        
