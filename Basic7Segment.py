@@ -1,5 +1,3 @@
-#This file contains th code for my Basic 7Segment Display which counts to 9 with the help of a Button and as soon as it reaches 10 it starts again from 0.
-
 from machine import Pin
 import utime
 
