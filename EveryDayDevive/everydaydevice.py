@@ -30,7 +30,7 @@ seconds_button = machine.Pin(4, machine.Pin.IN, machine.Pin.PULL_DOWN)
 
 
 # a settings function that lets u change the time   
-def settings(h, m, s):
+def settings(h, m, s, lbs):
     timelist = [] #a list that gets returned
     
     while settings_button.value() == 0:
@@ -40,6 +40,7 @@ def settings(h, m, s):
         
         if m > 59:
             m = 0
+            lbs = 0
             
         if h > 23:
             h = 0
@@ -50,6 +51,7 @@ def settings(h, m, s):
             h = h +1
         if minutes_button.value() == 1:
             m = m +1
+            lbs = lbs +60
         if seconds_button.value() == 1:
             s = s +1
         
@@ -66,9 +68,11 @@ def settings(h, m, s):
         hor = int(h)
         mi = int(m)
         se = int(s)
+        lb = int(lbs)
         timelist.append(hor)
         timelist.append(mi)
         timelist.append(se)
+        timelist.append(lb)
         return timelist
     
     
@@ -81,16 +85,19 @@ hours = 0
 minutes = 0
 seconds = 0
 timer_running = False
+loadingbarseconds = 0
     
-    
+#main while true loop    
 while True:
+    lcd.clear()
     #time settings button
     if settings_button.value() == 1:
         utime.sleep(1)
-        result = settings(hours, minutes, seconds)
+        result = settings(hours, minutes, seconds, loadingbarseconds)
         hours = result[0]
         minutes = result[1]
         seconds = result[2]
+        loadingbarseconds = result[3]
     
     
     
@@ -102,6 +109,7 @@ while True:
     if minutes >= 60:
             minutes = 0
             hours = hours+1
+            loadingbarseconds = 0
             
     if hours >= 24:
                 hours = 0
@@ -109,11 +117,13 @@ while True:
     hour = str(hours)
     minute = str(minutes)
     second = str(seconds)
-    lcd.clear()
     lcd.move_to(0,0)
     lcd.putstr(hour + ":" + minute + ":" + second)
     
+    
 
+
+    
     #temperatur that gets read and wrote to the display
     value_a = temp_sensor.read_u16()
     spannung = value_a * conversion_factor
@@ -122,6 +132,48 @@ while True:
     string = str(temperatur)
     lcd.move_to(10,0)
     lcd.putstr(string+ " C")
+    
+    
+    #loading bar for one hour
+    if minutes > 6:
+        lcd.move_to(0,1)
+        lcd.putstr("#")
+    if minutes > 12:
+        lcd.move_to(1,1)
+        lcd.putstr("#")
+    if minutes > 18:
+        lcd.move_to(2,1)
+        lcd.putstr("#")
+    if minutes > 24:
+        lcd.move_to(3,1)
+        lcd.putstr("#")
+    if minutes > 30:
+        lcd.move_to(4,1)
+        lcd.putstr("#")
+    if minutes > 36:
+        lcd.move_to(5,1)
+        lcd.putstr("#")
+    if minutes > 43:
+        lcd.move_to(6,1)
+        lcd.putstr("#")
+    if minutes > 49:
+        lcd.move_to(7,1)
+        lcd.putstr("#")
+    if minutes > 54:
+        lcd.move_to(8,1)
+        lcd.putstr("#")
+    if minutes > 60:
+        lcd.move_to(9,1)
+        lcd.putstr("#")
+        
+    loadingbarseconds = loadingbarseconds + 1    
+    percent = (loadingbarseconds / 3600)* 100
+    percent = round(percent,1)
+    percent = str(percent)
+    lcd.move_to(11,1)
+    lcd.putstr(percent+"%")
+    
+    
     
     
     #end of one loop go through that increases the time by one second by sleeping for one second
